@@ -10,7 +10,15 @@
  algo al servidor por el m�todo GET **/  
  const empleadoCtrl = require('../controllers/empleado.controller'); // importamos el controlador
 router.get('/', empleadoCtrl.getEmpleados); // obtenemos todos los empleados
- router.get('/', (req, res) => {  
+router.post('/', empleadoCtrl.createEmpleados);//guardar
+
+router.get('/:id', empleadoCtrl.getUnicoEmpleado);// obtiene un único empleado
+
+router.put('/:id',empleadoCtrl.editarEmpleado); //Actualizar datos (uno a la vez)
+
+router.delete('/:id', empleadoCtrl.eliminarEmpleado);
+ 
+router.get('/', (req, res) => {  
                                 
     res.json({
          status: 'API REST funcionando'
